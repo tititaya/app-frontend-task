@@ -1,0 +1,83 @@
+.game-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 15px; /* Plus d'espace pour un design aéré */
+    border: 1px solid lightslategrey;
+    border-radius: 10px;
+    background-color: #f9f9f9; /* Couleur de fond douce */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Légère ombre */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation */
+}
+
+.game-card:hover {
+    transform: scale(1.02); /* Zoom léger au survol */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Accentuation de l'ombre */
+}
+
+/* Section des boutons */
+.actions button {
+    height: 30px; /* Augmentation pour plus de clarté */
+    margin-right: 10px; /* Plus d'espacement entre les boutons */
+    padding-inline: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer; /* Indique que c'est un bouton cliquable */
+    font-size: 14px; /* Taille de police ajustée */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Animation */
+}
+
+.actions button:hover {
+    transform: translateY(-2px); /* Déplacement léger au survol */
+}
+
+/* Bouton éditer */
+.edit {
+    background-color: rgb(255, 217, 0);
+    color: rgb(255, 255, 255);
+}
+
+.edit:hover {
+    background-color: rgb(255, 200, 0); /* Couleur plus foncée au survol */
+}
+
+/* Bouton supprimer */
+.delete {
+    background-color: rgb(231, 22, 67);
+    color: white;
+}
+
+.delete:hover {
+    background-color: rgb(200, 0, 50); /* Couleur plus foncée au survol */
+}
+
+/* Bouton actions */
+.action {
+    background-color: rgb(90, 92, 90);
+    color: aliceblue;
+}
+
+.action:hover {
+    background-color: rgb(70, 72, 70); /* Couleur plus foncée au survol */
+}
+
+/* Informations principales */
+.info h4 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333; /* Texte plus sombre pour une meilleure lisibilité */
+}
+
+.info p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #666; /* Couleur de texte complémentaire */
+}
+
+/* Flexbox global */
+.flex {
+    display: flex;
+    gap: 10px; /* Uniformise les espacements dans les flexboxes */
+}
