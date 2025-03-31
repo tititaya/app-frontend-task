@@ -6,8 +6,7 @@ import Card from "./components/card";
 import TaskSummary from "./components/TaskSummary";
 
 function Task() {
-  const baseUrl = "http://localhost:3001";
-
+  const baseUrl = "https://app-backend-task.onrender.com";
   const [values, setValues] = useState({});
   const [tasks, settasks] = useState([]);
 
