@@ -4,60 +4,56 @@ import Axios from "axios";
 import Card from "./card";
 
 function TaskFerme() {
-    const baseUrl = import.meta.env.VITE_API_URL;
+  const baseUrl = import.meta.env.VITE_API_URL;
+  const [values, setValues] = useState();
+  const [tasks, settasks] = useState([]);
 
-    const [values, setValues] = useState();
-    const [tasks, settasks] = useState();
+  const handleChangeValues = (value) => {
+    setValues((prevValue) => ({
+      ...prevValue,
+      [value.target.name]: value.target.value,
+    }));
+  };
 
-    const handleChangeValues = (value) => {
-        setValues((prevValue) => ({
-            ...prevValue,
-            [value.target.name]: value.target.value,
-        }));
-    };
+  const handleClickButton = () => {
+    Axios.post(`${baseUrl}/register`, {
+      name: values.name,
+      description: values.description,
+      priorite: values.priorite,
+    }).then((response) => {
+      console.log(response);
+    });
+  };
 
-    const handleClickButton = () => {
-        Axios.post(`${baseUrl}/register`, {
-            name: values.name,
-            description: values.description,
-            priorite: values.priorite,
-        }).then((response) => {
-            console.log(response);
-        });
-    };
+  useEffect(() => {
+    Axios.get(`${baseUrl}/tasks`).then((response) => {
+      settasks(response.data);
+    });
+  }, []);
 
-    useEffect(() => {
-        Axios.get(`${baseUrl}/tasks`).then((response) => {
-            settasks(response.data);
-        });
-    }, []); // Ajoutez un tableau de dépendances vide pour éviter de recharger à chaque rendu
+  return (
+    <div className="App py-6 px-4 sm:px-8 lg:px-16">
+      <h1 className="text-2xl font-bold text-center mb-6 text-gray-900 dark:text-white">
+        Tâches Fermées 🔒
+      </h1>
 
-    return (
-        <div className="App">
-            <div className="container">
-                <h1 className="title">Liste des tâches fermées</h1>
-        
-                <br />
-                <div className="cards">
-                    {typeof tasks !== "undefined" &&
-                        tasks
-                            .filter((task) => task.statut === "Close") // Filtre les tâches terminées
-                            .map((task) => {
-                                return (
-                                    <Card
-                                        key={task.idtasks}
-                                        id={task.idtasks}
-                                        name={task.name}
-                                        description={task.description}
-                                        priorite={task.priorite}
-                                        statut={task.statut}
-                                    ></Card>
-                                );
-                            })}
-                </div>
-            </div>
-        </div>
-    );
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {tasks &&
+          tasks
+            .filter((task) => task.statut === "Close")
+            .map((task) => (
+              <Card
+                key={task.idtasks}
+                id={task.idtasks}
+                name={task.name}
+                description={task.description}
+                priorite={task.priorite}
+                statut={task.statut}
+              />
+            ))}
+      </div>
+    </div>
+  );
 }
 
 export default TaskFerme;

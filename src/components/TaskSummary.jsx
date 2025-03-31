@@ -1,52 +1,53 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 const TaskSummary = ({ tasks }) => {
-  // Calculer les totaux dynamiquement en fonction des tâches reçues
   const totalValide = tasks ? tasks.filter((task) => task.statut === "Valide").length : 0;
   const totalClose = tasks ? tasks.filter((task) => task.statut === "Close").length : 0;
   const totalEnCours = tasks ? tasks.filter((task) => task.statut === "En Cours").length : 0;
   const totalTasks = tasks ? tasks.length : 0;
 
+  const cardStyle =
+    "w-full sm:w-1/2 lg:w-1/4 p-4";
+
+  const innerCard =
+    "h-full p-6 border rounded-lg shadow text-center dark:border-gray-700";
+
   return (
-    <div className="flex gap-8 justify-center">
-      {/* Total de toutes les tâches */}
-      <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <h4 className="mb-2 text-lg font-bold text-gray-900 dark:text-white">
-          Total de toutes les tâches
-        </h4>
-        <p className="mb-3 text-center text-5xl font-normal text-gray-700 dark:text-gray-400">
-          {totalTasks}
-        </p>
+    <div className="flex flex-wrap justify-center gap-4">
+      <div className={cardStyle}>
+        <div className={`${innerCard} bg-white dark:bg-gray-800`}>
+          <h4 className="mb-2 text-lg font-bold text-gray-900 dark:text-white">
+            Total de toutes les tâches
+          </h4>
+          <p className="text-4xl font-semibold text-gray-700 dark:text-gray-300">{totalTasks}</p>
+        </div>
       </div>
 
-      {/* Tâches validées */}
-      <div className="max-w-sm p-6 bg-green-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <h4 className="mb-2 text-lg font-bold text-gray-900 dark:text-white">
-          Toutes les tâches Validées
-        </h4>
-        <p className="mb-3 text-center text-5xl font-normal text-gray-700 dark:text-gray-400">
-          {totalValide}
-        </p>
+      <div className={cardStyle}>
+        <div className={`${innerCard} bg-green-200 dark:bg-green-900`}>
+          <h4 className="mb-2 text-lg font-bold text-gray-900 dark:text-white">
+            Tâches Validées
+          </h4>
+          <p className="text-4xl font-semibold text-gray-800 dark:text-gray-100">{totalValide}</p>
+        </div>
       </div>
 
-      {/* Tâches en cours */}
-      <div className="max-w-sm p-6 bg-gray-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <h4 className="mb-2 text-lg font-bold text-gray-900 dark:text-white">
-          Toutes les tâches En Cours
-        </h4>
-        <p className="mb-3 font-normal text-center text-5xl text-gray-700 dark:text-gray-400">
-          {totalEnCours}
-        </p>
+      <div className={cardStyle}>
+        <div className={`${innerCard} bg-gray-200 dark:bg-gray-700`}>
+          <h4 className="mb-2 text-lg font-bold text-gray-900 dark:text-white">
+            Tâches En Cours
+          </h4>
+          <p className="text-4xl font-semibold text-gray-800 dark:text-gray-100">{totalEnCours}</p>
+        </div>
       </div>
 
-      {/* Tâches fermées */}
-      <div className="max-w-sm p-6 bg-red-200 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <h4 className="mb-2 text-lg font-bold text-gray-900 dark:text-white">
-          Toutes les tâches Close
-        </h4>
-        <p className="mb-3 text-center text-5xl font-normal text-gray-700 dark:text-gray-400">
-          {totalClose}
-        </p>
+      <div className={cardStyle}>
+        <div className={`${innerCard} bg-red-200 dark:bg-red-900`}>
+          <h4 className="mb-2 text-lg font-bold text-gray-900 dark:text-white">
+            Tâches Fermées
+          </h4>
+          <p className="text-4xl font-semibold text-gray-800 dark:text-gray-100">{totalClose}</p>
+        </div>
       </div>
     </div>
   );

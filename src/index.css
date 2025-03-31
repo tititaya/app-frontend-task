@@ -6,91 +6,101 @@
 body {
   margin: 0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-    'Helvetica Neue', sans-serif;
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  background-color: #f9fafb;
+  color: #333;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f9fafb; /* Fond clair par défaut */
-  color: #333; /* Couleur de texte principale */
-  line-height: 1.6; /* Meilleure lisibilité */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Transition douce pour les changements de mode */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body.dark {
-  background-color: #1a202c; /* Fond sombre */
-  color: #e2e8f0; /* Couleur de texte pour le mode sombre */
-}
-
-code {
-  font-family: 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-  background-color: #edf2f7; /* Fond clair pour les blocs de code */
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-  color: #2d3748; /* Texte sombre pour les blocs de code */
-}
-
-code.dark {
-  background-color: #2d3748; /* Fond sombre pour les blocs de code */
-  color: #e2e8f0; /* Texte clair pour les blocs de code */
+  background-color: #1a202c;
+  color: #e2e8f0;
 }
 
 /* Liens */
 a {
-  color: #3b82f6; /* Couleur primaire pour les liens */
+  color: #3b82f6;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: #2563eb; /* Couleur plus foncée au survol */
+  color: #2563eb;
 }
 
-a.dark {
-  color: #90cdf4; /* Couleur pour les liens en mode sombre */
+body.dark a {
+  color: #90cdf4;
 }
 
-a.dark:hover {
-  color: #63b3ed; /* Couleur plus claire au survol en mode sombre */
+body.dark a:hover {
+  color: #63b3ed;
 }
 
-/* Boutons */
+/* Code blocks */
+code {
+  font-family: 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+  background-color: #edf2f7;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  color: #2d3748;
+}
+
+body.dark code {
+  background-color: #2d3748;
+  color: #e2e8f0;
+}
+
+/* Boutons par défaut */
 button {
   font-family: inherit;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 0.375rem;
-  background-color: #3b82f6; /* Couleur par défaut des boutons */
+  background-color: #3b82f6;
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-  background-color: #2563eb; /* Couleur au survol */
-  transform: scale(1.05); /* Légère mise en avant */
+  background-color: #2563eb;
+  transform: scale(1.05);
 }
 
-button.dark {
-  background-color: #2d3748; /* Fond sombre pour les boutons */
+body.dark button {
+  background-color: #2d3748;
 }
 
-button.dark:hover {
-  background-color: #1a202c; /* Fond plus sombre au survol */
+body.dark button:hover {
+  background-color: #1a202c;
 }
 
-/* Conteneur principal */
+/* Conteneur global */
 .container {
   margin: 0 auto;
   max-width: 1200px;
   padding: 1rem;
 }
 
-/* Ajout de transitions globales */
+/* Défilement fluide */
 html {
-  scroll-behavior: smooth; /* Défilement fluide */
+  scroll-behavior: smooth;
 }
 
-.dark * {
-  transition: all 0.3s ease; /* Transition pour tous les éléments en mode sombre */
+/* Transitions en mode sombre */
+body.dark * {
+  transition: all 0.3s ease;
+}
+
+/* Responsive titre */
+@media (max-width: 768px) {
+  h1, .title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
 }

@@ -1,111 +1,109 @@
-/* Reset des marges et paddings pour tous les éléments */
+/* Réinitialisation */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Assure que le padding est inclus dans les dimensions */
+  box-sizing: border-box;
 }
 
-/* Style général du body */
+/* Corps du document */
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: #f4f4f9; /* Couleur de fond douce pour le confort visuel */
-  color: #333; /* Couleur principale du texte */
-  line-height: 1.6; /* Meilleure lisibilité */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Transition pour mode sombre/clair */
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body.dark {
-  background-color: #1a202c; /* Fond sombre */
-  color: #e2e8f0; /* Couleur de texte pour le mode sombre */
+  background-color: #1a202c;
+  color: #e2e8f0;
 }
 
-/* Centrage global des conteneurs */
+/* Conteneur global */
 .container {
   margin: 0 auto;
-  padding: 0 20px; /* Ajoute un padding latéral pour éviter que le contenu touche les bords */
-  max-width: 1200px; /* Limite la largeur totale */
+  padding: 0 1rem;
+  max-width: 1200px;
 }
 
-/* Titres principaux */
+/* Titres */
 .title {
-  margin-top: 120px;
-  margin-bottom: 10px;
-  text-align: center; /* Centrer le titre */
-  font-size: 2rem; /* Taille plus grande pour attirer l'attention */
-  color: #555; /* Couleur légèrement adoucie */
+  margin-top: 6rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #555;
 }
 
 body.dark .title {
-  color: #cbd5e0; /* Couleur légèrement adoucie pour le mode sombre */
+  color: #cbd5e0;
 }
 
-/* Grille pour les éléments d'enregistrement */
+/* Section formulaire */
 .register-box {
-  margin-top: 80px;
-  align-items: center;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-  gap: 20px; /* Espace entre les éléments */
-  margin-inline: 5%; /* Espacement global latéral */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin: 3rem auto;
+  padding: 1rem;
 }
 
-/* Champs de saisie */
-.register-input, 
-.register-inp, 
-.register-button {
-  margin-top: 5px;
-  padding-inline: 10px;
-  border: 1px solid #ddd; /* Bordure plus douce */
-  border-radius: 8px;
-  font-size: 1rem;
-}
-
-body.dark .register-input, 
-body.dark .register-inp {
-  border: 1px solid #4a5568; /* Bordure adoucie pour le mode sombre */
-  background-color: #2d3748; /* Fond sombre pour les champs */
-  color: #e2e8f0; /* Texte clair */
-}
-
-/* Style pour les inputs */
-.register-input {
-  height: 40px;
-}
-
+/* Inputs & Select */
+.register-input,
 .register-inp {
   height: 40px;
+  padding-inline: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 260px;
 }
 
-/* Bouton de soumission */
+body.dark .register-input,
+body.dark .register-inp {
+  border: 1px solid #4a5568;
+  background-color: #2d3748;
+  color: #e2e8f0;
+}
+
+/* Bouton principal */
 .register-button {
   height: 45px;
-  width: 180px;
+  padding: 0 1rem;
   background-color: rgb(101, 211, 134);
   color: white;
   font-weight: bold;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  max-width: 180px;
+  width: 100%;
 }
 
 .register-button:hover {
-  background-color: rgb(81, 181, 114); /* Couleur plus foncée au survol */
-  transform: scale(1.05); /* Léger agrandissement */
+  background-color: rgb(81, 181, 114);
+  transform: scale(1.05);
 }
 
 body.dark .register-button {
-  background-color: #68d391; /* Vert clair pour le mode sombre */
-  color: #1a202c; /* Texte sombre */
+  background-color: #68d391;
+  color: #1a202c;
 }
 
 body.dark .register-button:hover {
-  background-color: #48bb78; /* Vert plus foncé pour le mode sombre */
+  background-color: #48bb78;
 }
 
-/* Global alignement */
+/* Application globale */
 .App {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  padding-bottom: 5rem; /* Pour éviter de masquer le contenu par le footer */
 }
 
 /* Footer */
@@ -114,41 +112,49 @@ footer {
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #333; /* Couleur sombre */
+  background-color: #333;
   color: white;
   text-align: center;
   padding: 10px 0;
   z-index: 1000;
-  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2); /* Ombre subtile */
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body.dark footer {
-  background-color: #2d3748; /* Couleur sombre pour le mode sombre */
-  color: #e2e8f0; /* Texte clair */
+  background-color: #2d3748;
+  color: #e2e8f0;
 }
 
 footer a {
-  color: #68d391; /* Vert */
+  color: #68d391;
   text-decoration: none;
 }
 
 footer a:hover {
   text-decoration: underline;
-  color: #48bb78; /* Vert plus foncé */
+  color: #48bb78;
 }
 
-/* Ajustement pour les écrans mobiles */
+/* Responsive */
 @media (max-width: 768px) {
   .container {
-    padding: 0 10px;
+    padding: 0 0.75rem;
   }
 
   .title {
     font-size: 1.5rem;
+    margin-top: 4rem;
   }
 
+  .register-box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .register-input,
+  .register-inp,
   .register-button {
-    width: 100%;
+    max-width: 100%;
   }
 }
