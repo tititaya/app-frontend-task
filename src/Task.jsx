@@ -6,7 +6,8 @@ import Card from "./components/card";
 import TaskSummary from "./components/TaskSummary";
 
 function Task() {
-  const baseUrl = "https://app-backend-task.onrender.com";
+  const baseUrl = import.meta.env.VITE_API_URL;
+
   const [values, setValues] = useState({});
   const [tasks, settasks] = useState([]);
 

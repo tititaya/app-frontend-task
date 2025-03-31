@@ -4,7 +4,8 @@ import Axios from "axios";
 import Card from "./card";
 
 function TaskPending() {
-    const baseUrl = "https://app-backend-task.onrender.com";
+    const baseUrl = import.meta.env.VITE_API_URL;
+
     const [values, setValues] = useState();
     const [tasks, settasks] = useState();
 
